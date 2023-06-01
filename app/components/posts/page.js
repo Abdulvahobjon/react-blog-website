@@ -10,7 +10,6 @@ export default function Posts({posts , loading}) {
       {
         posts.map(item =>{
          return <Card key={item.id} img={item.img} title={item.title} text={item.dec} time={item.time}>
-
          </Card>
         })
       }

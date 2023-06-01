@@ -3,217 +3,18 @@ import Link from "next/link";
 import Pagination from "../components/pagination/page";
 import Posts from "../components/posts/page";
 import { useState } from "react";
+import BlogList from "../blog";
 
 const { default: Card } = require("../components/card/page");
 const { default: Header } = require("../components/header/page");
 
 const { default: Footer } = require("../components/footer/page");
+import data from "../data";
 export default function page() {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      img: "../img/blog-item/blog-item-2.png",
-      title:
-        "1 Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 2,
-      img: "../img/blog-item/blog-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 3,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 4,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 5,
-      img: "../img/blog-item/blog-md-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 6,
-      img: "../img/blog-item/blog-md-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 7,
-      img: "../img/blog-item/blog-md-item-4.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 8,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title:
-        "1 Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 9,
-      img: "../img/blog-item/blog-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 10,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id:11,
-      img: "../img/blog-item/blog-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 12,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 13,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 14,
-      img: "../img/blog-item/blog-md-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 1,
-      img: "../img/blog-item/blog-item-2.png",
-      title:
-        "1 Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 2,
-      img: "../img/blog-item/blog-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 3,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 4,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 5,
-      img: "../img/blog-item/blog-md-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 6,
-      img: "../img/blog-item/blog-md-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 7,
-      img: "../img/blog-item/blog-md-item-4.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 8,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title:
-        "1 Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 9,
-      img: "../img/blog-item/blog-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 10,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id:11,
-      img: "../img/blog-item/blog-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 12,
-      img: "../img/blog-item/blog-item-3.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 13,
-      img: "../img/blog-item/blog-md-item-1.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-    {
-      id: 14,
-      img: "../img/blog-item/blog-md-item-2.png",
-      title: "Xayotda shunday vaziyatlar bo‘ladiki, kimdan yordam so‘ramang...",
-      dec: "Yaqinda bir psixologning suhbatini eshitib qoldim. U aytishicha o‘sha davrda hech qanday moliyaviy muhim qarorlar qabul qilish kerak emas ekan…",
-      time: "13.08.2022",
-    },
-  ]);
+  const [posts, setPosts] = useState(data);
   const [loading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [postsPerPage, setPostsPerPage] = useState(6);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
@@ -225,7 +26,7 @@ export default function page() {
       <div className="bg-blog-orange relative">
         <Header />
       </div>
-
+        <BlogList blogs={posts}/>
       <main class="block pt-14 pb-14">
         <div class="max-w-[1432px] w-full px-4 mx-auto">
           <Link
@@ -253,14 +54,14 @@ export default function page() {
           <h2 class="font-extrabold text-32 mb-5">Maqolalar</h2>
           <section class="max-w-[1052px] w-full">
             {/* <!-- Blog card bootom start --> */}
-            <div class="grid grid-cols-2 sm:grid-cols-1 gap-8">
+            <div class="grid sm:grid-cols-1 gap-8 mb-5">
               <Posts posts={currentPosts} loading={loading}></Posts>
+            </div>
               <Pagination
                 postsPrePage={postsPerPage}
                 totalPosts={posts.length}
                 paginate={paginate}
               />
-            </div>
           </section>
         </div>
       </main>

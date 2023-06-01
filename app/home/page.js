@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Card from "../components/card/page";
 import FooterFull from "../components/footerFull/page";
 import Header from "../components/header/page";
@@ -49,12 +50,12 @@ export default function Home() {
               Malevich Consulting asoschilardan biri va 16 yillik SERVIS
               bo‘yicha mutaxassis
             </p>
-            <a
-              href="#"
+            <Link
+              href="/about"
               className="font-extrabold text-lg leading-6 text-white bg-black rounded-10 inline-block hover:bg-white hover:text-black transition-all p-5"
             >
               Men haqimda
-            </a>
+            </Link>
           </div>
         </section>
         {/* <!-- header and hero end --> */}
